@@ -1,0 +1,157 @@
+لbody {
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+@keyframes colorShift {
+  0% { background: #001122; }
+  33% { background: #002244; }
+  66% { background: #001122; }
+  100% { background: #002244; }
+}
+
+@keyframes liquid {
+  0% { border-radius: 50%; }
+  10% { border-radius: 40% 60% 30% 70%; }
+  20% { border-radius: 30% 70% 60% 40%; }
+  30% { border-radius: 60% 40% 70% 30%; }
+  40% { border-radius: 70% 30% 40% 60%; }
+  50% { border-radius: 50% 50% 50% 50%; }
+  60% { border-radius: 40% 60% 70% 30%; }
+  70% { border-radius: 30% 70% 40% 60%; }
+  80% { border-radius: 60% 40% 30% 70%; }
+  90% { border-radius: 70% 30% 60% 40%; }
+  100% { border-radius: 50%; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.card {
+  background: #001122;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: colorShift 15s infinite alternate, liquid 6s infinite ease-in-out, glow 4s infinite alternate;
+  transition: box-shadow 0.3s ease;
+  cursor: grab;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  user-select: none;
+}
+
+.card:active {
+  cursor: grabbing;
+  animation: glow 2s infinite alternate;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.card-content {
+  flex: 1;
+  transition: opacity 0.5s ease;
+  position: relative;
+}
+
+.profile-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+h2 {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+}
+
+.email, .phone, .instagram, .facebook {
+  margin: 12px 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.email .icon, .phone .icon, .instagram .icon, .facebook .icon {
+  font-size: 1.5rem;
+  color: #bbdefb;
+}
+
+a {
+  color: #bbdefb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e3f2fd;
+  text-decoration: underline;
+}
+
+.qr-code {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  transition: opacity 0.5s ease;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  pointer-events: none;
+  user-select: none;
+  width: 160px;
+  height: 160px;
+  box-shadow: none;
+}
+
+.qr-code img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.8);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
