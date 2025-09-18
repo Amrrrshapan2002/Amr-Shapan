@@ -8,9 +8,8 @@
 
 @keyframes colorShift {
   0% { background: #001122; }
-  33% { background: #002244; }
-  66% { background: #001122; }
-  100% { background: #002244; }
+  50% { background: #002244; }
+  100% { background: #001122; }
 }
 
 @keyframes liquid {
